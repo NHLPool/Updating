@@ -4,8 +4,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Puck Pool — NHL Fantasy League Tracker.">
-<title>Puck Pool — NHL Fantasy League</title>
+<meta name="description" content="Puck Pool -- NHL Fantasy League Tracker.">
+<title>Puck Pool -- NHL Fantasy League</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;800&family=DM+Sans:wght@400;500&display=swap">
@@ -13,12 +13,11 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --navy:#0a1628;--surface:#0f1e35;--card:#162a46;--card2:#1c304f;
-  --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.14);
-  --text:#e2e8f0;--muted:#94a3b8;--accent:#3b82f6;--ab:#60a5fa;
-  --gold:#f59e0b;--silver:#9ca3af;--bronze:#cd7f32;--green:#22c55e;--red:#ef4444;
+–navy:#0a1628;–surface:#0f1e35;–card:#162a46;–card2:#1c304f;
+–border:rgba(255,255,255,0.08);–border2:rgba(255,255,255,0.14);
+–text:#e2e8f0;–muted:#94a3b8;–accent:#3b82f6;–ab:#60a5fa;
+–gold:#f59e0b;–silver:#9ca3af;–bronze:#cd7f32;–green:#22c55e;–red:#ef4444;
 }
-  
 html{scroll-behavior:smooth}
 body{background:var(–navy);color:var(–text);font-family:‘DM Sans’,system-ui,sans-serif;min-height:100vh;padding-bottom:4rem;-webkit-font-smoothing:antialiased}
 
@@ -190,7 +189,7 @@ header{padding:.9rem 1rem}
 <header>
   <span class="logo"><span class="puck"></span>Puck Pool</span>
   <div class="header-right">
-    <span class="badge badge-season" id="hdr-season-badge">2025–26 Season</span>
+    <span class="badge badge-season" id="hdr-season-badge">2025-26 Season</span>
     <span class="badge badge-live"><span class="live-dot"></span>Live</span>
     <button class="icon-btn" title="Admin" onclick="openAdmin()">⚙</button>
   </div>
@@ -244,8 +243,8 @@ header{padding:.9rem 1rem}
 <!-- PLAYERS TAB -->
 <div id="admin-tab-players">
   <div class="admin-section">
-    <div class="admin-section-title" id="editing-season-label">Editing: —</div>
-    <p style="font-size:.78rem;color:var(--muted);margin-bottom:1rem">Each player can have 2–4 team abbreviations (e.g. COL, OTT, DET). Changes apply to the selected season only.</p>
+    <div class="admin-section-title" id="editing-season-label">Editing: --</div>
+    <p style="font-size:.78rem;color:var(--muted);margin-bottom:1rem">Each player can have 2-4 team abbreviations (e.g. COL, OTT, DET). Changes apply to the selected season only.</p>
     <div id="player-cards-list"></div>
     <button class="add-player-btn" onclick="addPlayerCard()">+ Add Player</button>
   </div>
@@ -338,7 +337,7 @@ const DEFAULT_PLAYERS = [
 ];
 
 const DEFAULT_SEASONS = [
-  { id:'20252026', label:'2025–26', type:'current' },
+  { id:'20252026', label:'2025-26', type:'current' },
 ];
 
 const ALL_NHL_TEAMS = {
@@ -401,9 +400,9 @@ function getSeasonPlayers(seasonId) {
 }
 
 function seasonLabel(id) {
-  // e.g. 20252026 → "2025–26"
+  // e.g. 20252026 → "2025-26"
   const s = String(id);
-  if (s.length === 8) return s.slice(0,4) + '–' + s.slice(6);
+  if (s.length === 8) return s.slice(0,4) + '-' + s.slice(6);
   return s;
 }
 
@@ -511,7 +510,7 @@ async function loadStandings() {
   const season = store.seasons.find(s => s.id === activeSeason);
   if (!season) return;
 
-  // Future season — no data yet
+  // Future season -- no data yet
   if (season.type === 'future') {
     currentPts = {}; currentRec = {};
     renderPage(true);
@@ -565,7 +564,7 @@ function renderPage(isFuture) {
   if (isFuture) {
     main.append(h('div', { class:'info-banner' },
       `🏒 The ${season.label || seasonLabel(season.id)} season hasn't started yet. `,
-      'Check back when the season begins — standings will update automatically.',
+      'Check back when the season begins -- standings will update automatically.',
       h('br', {}), h('br', {}),
       'You can pre-configure player teams using the ', h('strong', {}, '⚙ Admin panel'), '.'
     ));
@@ -582,7 +581,7 @@ function renderPage(isFuture) {
     ));
   }
 
-  // PODIUM — 1st, 2nd, 3rd left to right
+  // PODIUM -- 1st, 2nd, 3rd left to right
   if (ranked.length >= 1 && !isFuture) {
     main.append(h('div', { class:'section-label' }, 'Top 3'));
     main.append(h('div', { class:'podium' },
@@ -609,7 +608,7 @@ function renderPage(isFuture) {
 
   // TEAM GRID (only for live/past seasons)
   if (!isFuture) {
-    main.append(h('div', { class:'section-label', style:'margin-top:2.5rem' }, 'All Teams — Points This Season'));
+    main.append(h('div', { class:'section-label', style:'margin-top:2.5rem' }, 'All Teams -- Points This Season'));
     const grid = h('div', { class:'team-grid' });
     for (const abbr of Object.keys(ALL_NHL_TEAMS)) {
       const allPlayers = getSeasonPlayers(activeSeason);
@@ -618,7 +617,7 @@ function renderPage(isFuture) {
       grid.append(h('div', { class:'team-card' },
         h('div', { class:'team-abbr' }, abbr),
         h('div', { class:'team-name-sm' }, ALL_NHL_TEAMS[abbr]),
-        h('div', { class:'team-pts' }, String(currentPts[abbr] ?? '—')),
+        h('div', { class:'team-pts' }, String(currentPts[abbr] ?? '--')),
         currentRec[abbr] ? h('div', { class:'team-record' }, `${currentRec[abbr].w}-${currentRec[abbr].l}-${currentRec[abbr].otl}`) : null,
         ownerLabel ? h('div', { class:'team-owner' }, ownerLabel) : null,
       ));
@@ -637,7 +636,7 @@ function makePodiumCard(p, cls) {
     h('div', { class:'podium-pts' }, String(tot)),
     h('div', { class:'podium-pts-label' }, 'pts'),
     h('div', { class:'podium-teams' },
-      ...p.teams.map(t => h('span', { class:'mini-chip' }, `${t} ${currentPts[t] ?? '—'}`))
+      ...p.teams.map(t => h('span', { class:'mini-chip' }, `${t} ${currentPts[t] ?? '--'}`))
     )
   );
 }
@@ -645,27 +644,27 @@ function makePodiumCard(p, cls) {
 function makeRow(p, isExtras, isFuture) {
   const pts   = p.teams.map(t => currentPts[t] ?? 0);
   const tot   = playerTotal(p);
-  const medal = p.rank === 1 ? '🥇' : p.rank === 2 ? '🥈' : p.rank === 3 ? '🥉' : String(p.rank ?? '—');
+  const medal = p.rank === 1 ? '🥇' : p.rank === 2 ? '🥈' : p.rank === 3 ? '🥉' : String(p.rank ?? '--');
   const nameEl = h('div', { class:'player-name' }, p.name);
   if (isExtras) nameEl.append(h('span', { class:'extras-tag' }, 'unowned'));
 
   return h('div', { class:`lb-grid lb-row${isExtras ? ' extras' : ''}` },
-    h('div', { class:`rank-cell${p.rank <= 3 ? ' top' : ''}` }, isExtras ? '—' : medal),
+    h('div', { class:`rank-cell${p.rank <= 3 ? ' top' : ''}` }, isExtras ? '--' : medal),
     h('div', {},
       nameEl,
       h('div', { class:'player-chips' }, ...p.teams.map(t => h('span', { class:'team-chip' }, t)))
     ),
     h('div', { class:'pts-cell' },
       h('span', { class:'pt-abbr' }, p.teams[0] ?? ''),
-      isFuture ? '—' : String(pts[0])
+      isFuture ? '--' : String(pts[0])
     ),
     h('div', { class:'pts-cell' },
       h('span', { class:'pt-abbr' }, p.teams[1] ?? ''),
-      isFuture ? '—' : String(pts[1])
+      isFuture ? '--' : String(pts[1])
     ),
     h('div', { class:'pts-cell col-hide' },
-      h('span', { class:'pt-abbr' }, p.teams[2] ?? '—'),
-      isFuture ? '—' : String(pts[2] ?? '—')
+      h('span', { class:'pt-abbr' }, p.teams[2] ?? '--'),
+      isFuture ? '--' : String(pts[2] ?? '--')
     ),
     h('div', { class:'total-cell', style: isExtras ? 'color:var(--muted)' : '' },
       isFuture ? String(p.teams.length) : String(tot)
