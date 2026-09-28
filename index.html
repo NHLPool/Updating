@@ -340,24 +340,42 @@ function seasonLabel(id) {
 /* ═══════════════════════════════════════════
    NHL API / PROXIES
 ═══════════════════════════════════════════ */
-const PROXIES = [
-  u => `https://api.allorigins.win/raw?url=${encodeURIComponent(u)}`,
-  u => `https://corsproxy.io/?${encodeURIComponent(u)}`,
-  u => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(u)}`,
-];
-let workingProxy = 0;
+const LOCAL_DATA_URL = './data/standings.json';
 
-async function fetchNHL(url) {
-  for (let i = workingProxy; i < PROXIES.length; i++) {
-    try {
-      const res = await fetch(PROXIES[i](url), { signal: AbortSignal.timeout(30000) });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
-      workingProxy = i;
-      return data;
-    } catch(e) {
-      if (i === PROXIES.length - 1) throw e;
+async function fetchStandingsData() {
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+  try {
+    const cacheBuster = Date.now();
+
+    const response = await fetch(
+      `${LOCAL_DATA_URL}?v=${cacheBuster}`,
+      {
+        signal: controller.signal,
+        cache: 'no-store'
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`Local standings file returned HTTP ${response.status}`);
     }
+
+    const data = await response.json();
+
+    if (!Array.isArray(data.standings)) {
+      throw new Error('Local standings file has an invalid format');
+    }
+
+    return data;
+  } catch (error) {
+    if (error.name === 'AbortError') {
+      throw new Error('Loading standings timed out after 10 seconds');
+    }
+
+    throw error;
+  } finally {
+    clearTimeout(timeoutId);
   }
 }
 
@@ -438,41 +456,105 @@ function selectSeason(id) {
 /* ═══════════════════════════════════════════
    LOAD STANDINGS
 ═══════════════════════════════════════════ */
+let refreshTimer = null;
+
 async function loadStandings() {
   const main = document.getElementById('main-content');
   const season = SEASONS.find(s => s.id === activeSeason);
-  if (!season) return;
 
-  // Future season -- no data yet
+  if (!season) {
+    main.innerHTML = `
+      <div class="error-box">
+        <strong>Season configuration error</strong>
+        The selected season could not be found.
+      </div>
+    `;
+    return;
+  }
+
+  if (refreshTimer) {
+    clearTimeout(refreshTimer);
+    refreshTimer = null;
+  }
+
   if (season.type === 'future') {
-    currentPts = {}; currentRec = {};
+    currentPts = {};
+    currentRec = {};
     renderPage(true);
     return;
   }
 
-  main.innerHTML = '<div class="state-box"><div class="spinner"></div><div>Loading standings…</div></div>';
+  main.innerHTML = `
+    <div class="state-box">
+      <div class="spinner"></div>
+      <div>Loading standings…</div>
+      <div class="state-sub">Reading the latest saved NHL data</div>
+    </div>
+  `;
 
   try {
-    const url = getNHLUrl(season.id, season.type);
-    const data = await fetchNHL(url);
-    if (!data?.standings) throw new Error('Unexpected API response');
+    const data = await fetchStandingsData();
+
     const parsed = parseStandings(data.standings);
+
+    if (Object.keys(parsed.pts).length < 30) {
+      throw new Error(
+        `Only ${Object.keys(parsed.pts).length} NHL teams were recognized`
+      );
+    }
+
     currentPts = parsed.pts;
     currentRec = parsed.rec;
-    proxyLabel = ['allorigins','corsproxy','codetabs'][workingProxy];
+    proxyLabel = data.updatedAt
+      ? `GitHub data updated ${formatUpdatedTime(data.updatedAt)}`
+      : 'GitHub-hosted data';
+
     renderPage(false);
-    if (season.type === 'current') setTimeout(loadStandings, 10 * 60 * 1000);
-  } catch(err) {
+
+    if (season.type === 'current') {
+      refreshTimer = setTimeout(loadStandings, 10 * 60 * 1000);
+    }
+  } catch (err) {
+    console.error('Standings load failed:', err);
+
     main.innerHTML = '';
-    main.append(h('div', { class:'error-box' },
-      h('strong', {}, 'Could not load standings'),
-      err.message,
-      h('br', {}),
-      h('button', { class:'retry-btn', onclick: loadStandings }, '↺ Retry')
-    ));
+
+    main.append(
+      h(
+        'div',
+        { class: 'error-box' },
+        h('strong', {}, 'Could not load standings'),
+        err.message,
+        h('br', {}),
+        'The GitHub data file may not have been generated yet.',
+        h('br', {}),
+        h(
+          'button',
+          {
+            class: 'retry-btn',
+            onclick: loadStandings
+          },
+          '↺ Retry'
+        )
+      )
+    );
   }
 }
 
+function formatUpdatedTime(value) {
+  const date = new Date(value);
+
+  if (Number.isNaN(date.getTime())) {
+    return 'recently';
+  }
+
+  return date.toLocaleString('en-US', {
+    month: 'short',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: '2-digit'
+  });
+}
 /* ═══════════════════════════════════════════
    RENDER PAGE
 ═══════════════════════════════════════════ */
@@ -508,7 +590,7 @@ function renderPage(isFuture) {
   if (!isFuture) {
     main.append(h('div', { class:'meta-row' },
       h('div', { class:'last-updated' }, `Updated ${now} · auto-refreshes every 10 min`),
-      h('div', { class:'data-source' }, `via ${proxyLabel}`)
+      h('div', { class:'data-source' }, proxyLabel)
     ));
   }
 
