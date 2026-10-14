@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-13T21:10:50.115804+00:00",
+  "updatedAt": "2026-10-14T01:08:37.991198+00:00",
   "source": "https://api-web.nhle.com/v1/standings/now",
   "teams": [
     {
@@ -212,6 +212,17 @@
       "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg"
     },
     {
+      "abbrev": "NJD",
+      "name": "New Jersey Devils",
+      "points": 6,
+      "gamesPlayed": 6,
+      "wins": 3,
+      "losses": 3,
+      "otLosses": 0,
+      "seasonId": 20262027,
+      "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg"
+    },
+    {
       "abbrev": "FLA",
       "name": "Florida Panthers",
       "points": 6,
@@ -278,15 +289,15 @@
       "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg"
     },
     {
-      "abbrev": "NJD",
-      "name": "New Jersey Devils",
+      "abbrev": "DET",
+      "name": "Detroit Red Wings",
       "points": 4,
-      "gamesPlayed": 5,
-      "wins": 2,
+      "gamesPlayed": 6,
+      "wins": 1,
       "losses": 3,
-      "otLosses": 0,
+      "otLosses": 2,
       "seasonId": 20262027,
-      "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg"
+      "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
     },
     {
       "abbrev": "VAN",
@@ -298,17 +309,6 @@
       "otLosses": 0,
       "seasonId": 20262027,
       "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg"
-    },
-    {
-      "abbrev": "DET",
-      "name": "Detroit Red Wings",
-      "points": 3,
-      "gamesPlayed": 5,
-      "wins": 1,
-      "losses": 3,
-      "otLosses": 1,
-      "seasonId": 20262027,
-      "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
     },
     {
       "abbrev": "LAK",
