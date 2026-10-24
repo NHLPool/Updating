@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-24T18:03:39.683879+00:00",
+  "updatedAt": "2026-10-24T20:39:56.186305+00:00",
   "source": "https://api-web.nhle.com/v1/standings/now",
   "teams": [
     {
@@ -256,6 +256,17 @@
       "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg"
     },
     {
+      "abbrev": "ANA",
+      "name": "Anaheim Ducks",
+      "points": 10,
+      "gamesPlayed": 11,
+      "wins": 5,
+      "losses": 6,
+      "otLosses": 0,
+      "seasonId": 20262027,
+      "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg"
+    },
+    {
       "abbrev": "NSH",
       "name": "Nashville Predators",
       "points": 9,
@@ -281,23 +292,12 @@
       "abbrev": "PHI",
       "name": "Philadelphia Flyers",
       "points": 9,
-      "gamesPlayed": 12,
+      "gamesPlayed": 13,
       "wins": 3,
-      "losses": 6,
+      "losses": 7,
       "otLosses": 3,
       "seasonId": 20262027,
       "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg"
-    },
-    {
-      "abbrev": "ANA",
-      "name": "Anaheim Ducks",
-      "points": 8,
-      "gamesPlayed": 10,
-      "wins": 4,
-      "losses": 6,
-      "otLosses": 0,
-      "seasonId": 20262027,
-      "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg"
     },
     {
       "abbrev": "CBJ",
