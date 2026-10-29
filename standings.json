@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-28T23:07:31.962507+00:00",
+  "updatedAt": "2026-10-29T02:22:08.736377+00:00",
   "source": "https://api-web.nhle.com/v1/standings/now",
   "teams": [
     {
@@ -168,6 +168,17 @@
       "logo": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg"
     },
     {
+      "abbrev": "WSH",
+      "name": "Washington Capitals",
+      "points": 14,
+      "gamesPlayed": 11,
+      "wins": 7,
+      "losses": 4,
+      "otLosses": 0,
+      "seasonId": 20262027,
+      "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg"
+    },
+    {
       "abbrev": "NYI",
       "name": "New York Islanders",
       "points": 14,
@@ -232,17 +243,6 @@
       "otLosses": 1,
       "seasonId": 20262027,
       "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
-    },
-    {
-      "abbrev": "WSH",
-      "name": "Washington Capitals",
-      "points": 12,
-      "gamesPlayed": 10,
-      "wins": 6,
-      "losses": 4,
-      "otLosses": 0,
-      "seasonId": 20262027,
-      "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg"
     },
     {
       "abbrev": "STL",
@@ -314,9 +314,9 @@
       "abbrev": "PHI",
       "name": "Philadelphia Flyers",
       "points": 10,
-      "gamesPlayed": 14,
+      "gamesPlayed": 15,
       "wins": 3,
-      "losses": 7,
+      "losses": 8,
       "otLosses": 4,
       "seasonId": 20262027,
       "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg"
