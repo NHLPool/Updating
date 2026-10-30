@@ -1,13 +1,13 @@
 {
-  "updatedAt": "2026-10-29T21:44:25.797034+00:00",
+  "updatedAt": "2026-10-30T01:52:19.402479+00:00",
   "source": "https://api-web.nhle.com/v1/standings/now",
   "teams": [
     {
       "abbrev": "CAR",
       "name": "Carolina Hurricanes",
-      "points": 22,
-      "gamesPlayed": 14,
-      "wins": 10,
+      "points": 24,
+      "gamesPlayed": 15,
+      "wins": 11,
       "losses": 2,
       "otLosses": 2,
       "seasonId": 20262027,
@@ -56,6 +56,17 @@
       "otLosses": 1,
       "seasonId": 20262027,
       "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
+    },
+    {
+      "abbrev": "TBL",
+      "name": "Tampa Bay Lightning",
+      "points": 17,
+      "gamesPlayed": 12,
+      "wins": 8,
+      "losses": 3,
+      "otLosses": 1,
+      "seasonId": 20262027,
+      "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg"
     },
     {
       "abbrev": "SEA",
@@ -133,17 +144,6 @@
       "otLosses": 2,
       "seasonId": 20262027,
       "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg"
-    },
-    {
-      "abbrev": "TBL",
-      "name": "Tampa Bay Lightning",
-      "points": 15,
-      "gamesPlayed": 11,
-      "wins": 7,
-      "losses": 3,
-      "otLosses": 1,
-      "seasonId": 20262027,
-      "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg"
     },
     {
       "abbrev": "DAL",
@@ -267,17 +267,6 @@
       "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg"
     },
     {
-      "abbrev": "WPG",
-      "name": "Winnipeg Jets",
-      "points": 11,
-      "gamesPlayed": 12,
-      "wins": 4,
-      "losses": 5,
-      "otLosses": 3,
-      "seasonId": 20262027,
-      "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg"
-    },
-    {
       "abbrev": "PIT",
       "name": "Pittsburgh Penguins",
       "points": 11,
@@ -289,12 +278,23 @@
       "logo": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg"
     },
     {
+      "abbrev": "WPG",
+      "name": "Winnipeg Jets",
+      "points": 11,
+      "gamesPlayed": 13,
+      "wins": 4,
+      "losses": 6,
+      "otLosses": 3,
+      "seasonId": 20262027,
+      "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg"
+    },
+    {
       "abbrev": "CBJ",
       "name": "Columbus Blue Jackets",
       "points": 10,
-      "gamesPlayed": 10,
+      "gamesPlayed": 11,
       "wins": 5,
-      "losses": 5,
+      "losses": 6,
       "otLosses": 0,
       "seasonId": 20262027,
       "logo": "https://assets.nhle.com/logos/nhl/svg/CBJ_light.svg"
