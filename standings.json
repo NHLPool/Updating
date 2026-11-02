@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T00:35:34.974652+00:00",
+  "updatedAt": "2026-11-02T07:35:45.972539+00:00",
   "source": "https://api-web.nhle.com/v1/standings/now",
   "teams": [
     {
@@ -14,6 +14,17 @@
       "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"
     },
     {
+      "abbrev": "EDM",
+      "name": "Edmonton Oilers",
+      "points": 24,
+      "gamesPlayed": 15,
+      "wins": 11,
+      "losses": 2,
+      "otLosses": 2,
+      "seasonId": 20262027,
+      "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg"
+    },
+    {
       "abbrev": "MIN",
       "name": "Minnesota Wild",
       "points": 23,
@@ -23,17 +34,6 @@
       "otLosses": 3,
       "seasonId": 20262027,
       "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg"
-    },
-    {
-      "abbrev": "EDM",
-      "name": "Edmonton Oilers",
-      "points": 22,
-      "gamesPlayed": 14,
-      "wins": 10,
-      "losses": 2,
-      "otLosses": 2,
-      "seasonId": 20262027,
-      "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg"
     },
     {
       "abbrev": "BOS",
@@ -72,9 +72,9 @@
       "abbrev": "OTT",
       "name": "Ottawa Senators",
       "points": 19,
-      "gamesPlayed": 15,
+      "gamesPlayed": 16,
       "wins": 9,
-      "losses": 5,
+      "losses": 6,
       "otLosses": 1,
       "seasonId": 20262027,
       "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg"
@@ -201,17 +201,6 @@
       "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg"
     },
     {
-      "abbrev": "NYR",
-      "name": "New York Rangers",
-      "points": 15,
-      "gamesPlayed": 14,
-      "wins": 7,
-      "losses": 6,
-      "otLosses": 1,
-      "seasonId": 20262027,
-      "logo": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg"
-    },
-    {
       "abbrev": "STL",
       "name": "St. Louis Blues",
       "points": 15,
@@ -245,6 +234,17 @@
       "logo": "https://assets.nhle.com/logos/nhl/svg/NSH_light.svg"
     },
     {
+      "abbrev": "NYR",
+      "name": "New York Rangers",
+      "points": 15,
+      "gamesPlayed": 15,
+      "wins": 7,
+      "losses": 7,
+      "otLosses": 1,
+      "seasonId": 20262027,
+      "logo": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg"
+    },
+    {
       "abbrev": "SJS",
       "name": "San Jose Sharks",
       "points": 15,
@@ -254,6 +254,17 @@
       "otLosses": 1,
       "seasonId": 20262027,
       "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
+    },
+    {
+      "abbrev": "ANA",
+      "name": "Anaheim Ducks",
+      "points": 13,
+      "gamesPlayed": 14,
+      "wins": 6,
+      "losses": 7,
+      "otLosses": 1,
+      "seasonId": 20262027,
+      "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg"
     },
     {
       "abbrev": "CGY",
@@ -287,17 +298,6 @@
       "otLosses": 4,
       "seasonId": 20262027,
       "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg"
-    },
-    {
-      "abbrev": "ANA",
-      "name": "Anaheim Ducks",
-      "points": 11,
-      "gamesPlayed": 13,
-      "wins": 5,
-      "losses": 7,
-      "otLosses": 1,
-      "seasonId": 20262027,
-      "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg"
     },
     {
       "abbrev": "WPG",
