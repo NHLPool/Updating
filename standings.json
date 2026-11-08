@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T22:39:38.092400+00:00",
+  "updatedAt": "2026-11-08T02:19:58.576691+00:00",
   "source": "https://api-web.nhle.com/v1/standings/now",
   "teams": [
     {
@@ -124,6 +124,17 @@
       "logo": "https://assets.nhle.com/logos/nhl/svg/NSH_light.svg"
     },
     {
+      "abbrev": "NYR",
+      "name": "New York Rangers",
+      "points": 21,
+      "gamesPlayed": 18,
+      "wins": 10,
+      "losses": 7,
+      "otLosses": 1,
+      "seasonId": 20262027,
+      "logo": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg"
+    },
+    {
       "abbrev": "DAL",
       "name": "Dallas Stars",
       "points": 20,
@@ -157,17 +168,6 @@
       "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg"
     },
     {
-      "abbrev": "SEA",
-      "name": "Seattle Kraken",
-      "points": 19,
-      "gamesPlayed": 15,
-      "wins": 9,
-      "losses": 5,
-      "otLosses": 1,
-      "seasonId": 20262027,
-      "logo": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg"
-    },
-    {
       "abbrev": "BUF",
       "name": "Buffalo Sabres",
       "points": 19,
@@ -179,15 +179,15 @@
       "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg"
     },
     {
-      "abbrev": "NYR",
-      "name": "New York Rangers",
+      "abbrev": "SEA",
+      "name": "Seattle Kraken",
       "points": 19,
-      "gamesPlayed": 17,
+      "gamesPlayed": 16,
       "wins": 9,
-      "losses": 7,
+      "losses": 6,
       "otLosses": 1,
       "seasonId": 20262027,
-      "logo": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg"
+      "logo": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg"
     },
     {
       "abbrev": "ANA",
